@@ -1,34 +1,21 @@
-import { ExternalLink, Github } from "lucide-react";
+import { ExternalLink, Github, Play, Heart, MessageSquare, Users } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 const projects = [
   {
-    title: "E-Commerce Platform",
-    category: "Web Development",
-    description: "A full-featured online store with real-time inventory, secure payments, and admin dashboard.",
-    image: "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=600&h=400&fit=crop",
-    tags: ["React", "Node.js", "Stripe"],
-  },
-  {
-    title: "Finance Dashboard",
-    category: "UI/UX Design",
-    description: "Interactive analytics dashboard for tracking financial metrics and business performance.",
-    image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=600&h=400&fit=crop",
-    tags: ["Figma", "React", "D3.js"],
-  },
-  {
-    title: "Health & Fitness App",
-    category: "Mobile Development",
-    description: "Cross-platform mobile app for workout tracking, meal planning, and health monitoring.",
-    image: "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=600&h=400&fit=crop",
-    tags: ["React Native", "Firebase"],
-  },
-  {
-    title: "Real Estate Portal",
-    category: "Full Stack",
-    description: "Property listing platform with advanced search, virtual tours, and agent management.",
-    image: "https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=600&h=400&fit=crop",
-    tags: ["Next.js", "PostgreSQL"],
+    title: "VideoTubes",
+    category: "Full Stack Application",
+    description: "A full-stack YouTube-like video platform with user authentication, video uploads, comments, likes, subscriptions, and playlists.",
+    image: "https://images.unsplash.com/photo-1611162616475-46b635cb6868?w=600&h=400&fit=crop",
+    tags: ["React.js", "Node.js", "MongoDB", "JWT", "Cloudinary"],
+    features: [
+      { icon: Play, label: "Video Upload" },
+      { icon: Heart, label: "Likes" },
+      { icon: MessageSquare, label: "Comments" },
+      { icon: Users, label: "Subscriptions" },
+    ],
+    github: "https://github.com/Surya1712/VideoTubes",
+    featured: true,
   },
 ];
 
@@ -44,49 +31,67 @@ const Projects = () => {
             Featured Projects
           </h2>
           <p className="text-muted-foreground leading-relaxed">
-            A selection of projects that showcase my skills and passion for creating exceptional digital experiences.
+            Projects that showcase my skills in full-stack development and passion for creating user-centric applications.
           </p>
         </div>
 
-        <div className="grid md:grid-cols-2 gap-8">
+        <div className="max-w-4xl mx-auto">
           {projects.map((project) => (
             <div
               key={project.title}
-              className="group bg-card rounded-2xl overflow-hidden border border-border hover:border-primary/30 transition-all duration-300 hover:shadow-hover"
+              className="bg-card rounded-2xl overflow-hidden border border-border hover:border-primary/30 transition-all duration-300 hover:shadow-hover"
             >
               <div className="aspect-video overflow-hidden">
                 <img
                   src={project.image}
                   alt={project.title}
-                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                  className="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
                 />
               </div>
-              <div className="p-8">
-                <p className="text-sm text-primary mb-2">{project.category}</p>
-                <h3 className="font-display text-2xl font-semibold text-foreground mb-3">
+              <div className="p-8 md:p-10">
+                <div className="flex items-center gap-3 mb-4">
+                  <p className="text-sm text-primary font-medium">{project.category}</p>
+                  {project.featured && (
+                    <span className="px-2 py-0.5 text-xs bg-primary/10 text-primary rounded-full">
+                      Featured
+                    </span>
+                  )}
+                </div>
+                <h3 className="font-display text-3xl font-semibold text-foreground mb-4">
                   {project.title}
                 </h3>
-                <p className="text-muted-foreground leading-relaxed mb-4">
+                <p className="text-muted-foreground leading-relaxed mb-6">
                   {project.description}
                 </p>
-                <div className="flex flex-wrap gap-2 mb-6">
+
+                {/* Features */}
+                <div className="flex flex-wrap gap-4 mb-6">
+                  {project.features.map((feature) => (
+                    <div key={feature.label} className="flex items-center gap-2 text-sm text-muted-foreground">
+                      <feature.icon className="w-4 h-4 text-primary" />
+                      <span>{feature.label}</span>
+                    </div>
+                  ))}
+                </div>
+
+                {/* Tags */}
+                <div className="flex flex-wrap gap-2 mb-8">
                   {project.tags.map((tag) => (
                     <span
                       key={tag}
-                      className="px-3 py-1 text-xs font-medium bg-secondary text-secondary-foreground rounded-full"
+                      className="px-3 py-1 text-sm font-medium bg-secondary text-secondary-foreground rounded-full"
                     >
                       {tag}
                     </span>
                   ))}
                 </div>
+
                 <div className="flex gap-3">
-                  <Button variant="outline" size="sm">
-                    <ExternalLink className="w-4 h-4 mr-2" />
-                    Live Demo
-                  </Button>
-                  <Button variant="ghost" size="sm">
-                    <Github className="w-4 h-4 mr-2" />
-                    Code
+                  <Button variant="hero" asChild>
+                    <a href={project.github} target="_blank" rel="noopener noreferrer">
+                      <Github className="w-4 h-4 mr-2" />
+                      View on GitHub
+                    </a>
                   </Button>
                 </div>
               </div>

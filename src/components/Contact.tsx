@@ -1,18 +1,17 @@
-import { Mail, Phone, MapPin, Send, Linkedin, Github, Twitter } from "lucide-react";
+import { Mail, Phone, MapPin, Send, Linkedin, Github } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useState } from "react";
 import { toast } from "@/hooks/use-toast";
 
 const contactInfo = [
-  { icon: Mail, label: "Email", value: "hello@johndoe.dev", href: "mailto:hello@johndoe.dev" },
-  { icon: Phone, label: "Phone", value: "+1 (555) 123-4567", href: "tel:+15551234567" },
-  { icon: MapPin, label: "Location", value: "New York, NY, USA", href: "#" },
+  { icon: Mail, label: "Email", value: "surajmakwana1712@gmail.com", href: "mailto:surajmakwana1712@gmail.com" },
+  { icon: Phone, label: "Phone", value: "+91 75670 24863", href: "tel:+917567024863" },
+  { icon: MapPin, label: "Location", value: "Gandhinagar, Gujarat, India", href: "#" },
 ];
 
 const socials = [
-  { icon: Linkedin, href: "#", label: "LinkedIn" },
-  { icon: Github, href: "#", label: "GitHub" },
-  { icon: Twitter, href: "#", label: "Twitter" },
+  { icon: Linkedin, href: "https://linkedin.com/in/suraj-makwana1712", label: "LinkedIn" },
+  { icon: Github, href: "https://github.com/Surya1712", label: "GitHub" },
 ];
 
 const Contact = () => {
@@ -33,7 +32,7 @@ const Contact = () => {
   };
 
   return (
-    <section id="contact" className="py-24 px-6 bg-card">
+    <section id="contact" className="py-24 px-6">
       <div className="container mx-auto">
         <div className="text-center max-w-2xl mx-auto mb-16">
           <p className="text-sm uppercase tracking-[0.2em] text-primary mb-4">
@@ -43,7 +42,7 @@ const Contact = () => {
             Let's Work Together
           </h2>
           <p className="text-muted-foreground leading-relaxed">
-            Have a project in mind? I'd love to hear about it. Send me a message and let's create something amazing.
+            Have a project in mind or looking to hire a developer? I'd love to hear from you!
           </p>
         </div>
 
@@ -79,7 +78,9 @@ const Contact = () => {
                 <a
                   key={social.label}
                   href={social.href}
-                  className="w-10 h-10 bg-background border border-border rounded-lg flex items-center justify-center text-muted-foreground hover:text-primary hover:border-primary/30 transition-all"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-12 h-12 bg-card border border-border rounded-xl flex items-center justify-center text-muted-foreground hover:text-primary hover:border-primary/30 transition-all"
                   aria-label={social.label}
                 >
                   <social.icon className="w-5 h-5" />
@@ -87,17 +88,17 @@ const Contact = () => {
               ))}
             </div>
 
-            {/* Map Placeholder */}
-            <div className="mt-10 aspect-video bg-background rounded-2xl border border-border overflow-hidden">
+            {/* Map */}
+            <div className="mt-10 aspect-video bg-card rounded-2xl border border-border overflow-hidden">
               <iframe
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d193595.1583091352!2d-74.11976373946229!3d40.69766374859258!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c24fa5d33f083b%3A0xc80b8f06e177fe62!2sNew%20York%2C%20NY%2C%20USA!5e0!3m2!1sen!2s!4v1635959481000!5m2!1sen!2s"
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d117494.16906851086!2d72.55455795!3d23.21553495!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x395c2b987c6d6809%3A0xd9e5f0ec0e2c6e17!2sGandhinagar%2C%20Gujarat%2C%20India!5e0!3m2!1sen!2s!4v1635959481000!5m2!1sen!2s"
                 width="100%"
                 height="100%"
                 style={{ border: 0 }}
                 allowFullScreen
                 loading="lazy"
                 referrerPolicy="no-referrer-when-downgrade"
-                title="Location Map"
+                title="Location - Gandhinagar, Gujarat"
               />
             </div>
           </div>
@@ -115,7 +116,7 @@ const Contact = () => {
                     id="name"
                     value={formData.name}
                     onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                    className="w-full px-4 py-3 bg-background border border-border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all"
+                    className="w-full px-4 py-3 bg-card border border-border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all"
                     placeholder="John Smith"
                     required
                   />
@@ -129,7 +130,7 @@ const Contact = () => {
                     id="email"
                     value={formData.email}
                     onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                    className="w-full px-4 py-3 bg-background border border-border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all"
+                    className="w-full px-4 py-3 bg-card border border-border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all"
                     placeholder="john@example.com"
                     required
                   />
@@ -144,7 +145,7 @@ const Contact = () => {
                   id="subject"
                   value={formData.subject}
                   onChange={(e) => setFormData({ ...formData, subject: e.target.value })}
-                  className="w-full px-4 py-3 bg-background border border-border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all"
+                  className="w-full px-4 py-3 bg-card border border-border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all"
                   placeholder="Project Inquiry"
                   required
                 />
@@ -158,7 +159,7 @@ const Contact = () => {
                   value={formData.message}
                   onChange={(e) => setFormData({ ...formData, message: e.target.value })}
                   rows={6}
-                  className="w-full px-4 py-3 bg-background border border-border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all resize-none"
+                  className="w-full px-4 py-3 bg-card border border-border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all resize-none"
                   placeholder="Tell me about your project..."
                   required
                 />
