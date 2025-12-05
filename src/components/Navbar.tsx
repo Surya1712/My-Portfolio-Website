@@ -4,8 +4,9 @@ import { Button } from "@/components/ui/button";
 
 const navLinks = [
   { name: "About", href: "#about" },
-  { name: "Services", href: "#services" },
+  { name: "Skills", href: "#skills" },
   { name: "Projects", href: "#projects" },
+  { name: "Experience", href: "#experience" },
   { name: "Contact", href: "#contact" },
 ];
 
@@ -17,7 +18,7 @@ const Navbar = () => {
       <div className="container mx-auto px-6">
         <div className="flex items-center justify-between h-16">
           <a href="#" className="font-display text-xl font-semibold text-foreground">
-            John Doe
+            Suraj Makwana
           </a>
 
           {/* Desktop Navigation */}
@@ -31,8 +32,8 @@ const Navbar = () => {
                 {link.name}
               </a>
             ))}
-            <Button variant="hero" size="sm">
-              Hire Me
+            <Button variant="hero" size="sm" asChild>
+              <a href="#contact">Hire Me</a>
             </Button>
           </div>
 
@@ -59,8 +60,8 @@ const Navbar = () => {
                   {link.name}
                 </a>
               ))}
-              <Button variant="hero" className="mt-2">
-                Hire Me
+              <Button variant="hero" className="mt-2" asChild>
+                <a href="#contact">Hire Me</a>
               </Button>
             </div>
           </div>
