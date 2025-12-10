@@ -1,102 +1,105 @@
-import { GraduationCap, MapPin, Mail, Phone, User, Sparkles } from "lucide-react";
+import { GraduationCap, MapPin, Mail, Phone, User, Calendar, Heart } from "lucide-react";
 
 const About = () => {
   return (
-    <section id="about" className="py-16 sm:py-20 lg:py-28 px-4 sm:px-6 relative overflow-hidden">
+    <section id="about" className="py-20 lg:py-32 px-4 sm:px-6 relative overflow-hidden">
       {/* Background */}
-      <div className="absolute top-0 right-0 w-72 sm:w-96 h-72 sm:h-96 bg-primary/10 rounded-full blur-3xl" />
+      <div className="absolute top-1/2 right-0 w-[500px] h-[500px] bg-primary/10 rounded-full blur-[120px] -translate-y-1/2" />
       
       <div className="container mx-auto relative z-10">
-        <div className="max-w-6xl mx-auto">
-          {/* Section Header */}
-          <div className="text-center mb-12 sm:mb-16">
-            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full glass-card mb-4 sm:mb-6">
+        <div className="max-w-7xl mx-auto">
+          {/* Section Header - Left aligned */}
+          <div className="mb-16">
+            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full glass-card mb-6">
               <User className="w-4 h-4 text-primary" />
-              <span className="text-xs sm:text-sm font-medium text-muted-foreground">About Me</span>
+              <span className="text-sm font-medium text-muted-foreground">About Me</span>
             </div>
-            <h2 className="font-display text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-foreground">
-              Who I <span className="text-gradient">Am</span>
+            <h2 className="font-display text-4xl sm:text-5xl md:text-6xl font-bold text-foreground">
+              Know Who <span className="text-gradient">I Am</span>
             </h2>
           </div>
 
-          <div className="grid lg:grid-cols-5 gap-6 sm:gap-8 items-start">
-            {/* Bio - 3 columns */}
-            <div className="lg:col-span-3 space-y-4 sm:space-y-6">
-              <div className="glass-card p-6 sm:p-8 rounded-2xl sm:rounded-3xl">
-                <div className="space-y-4 text-muted-foreground leading-relaxed text-sm sm:text-base">
-                  <p className="text-base sm:text-lg">
-                    I'm a motivated and detail-oriented <span className="text-foreground font-medium">Full Stack Developer</span> with hands-on internship experience building responsive web applications using the MERN stack.
-                  </p>
-                  <p>
-                    Skilled in developing RESTful APIs, integrating front-end and back-end systems, and managing databases. I'm passionate about building scalable web apps and writing clean, maintainable code.
-                  </p>
-                  <p>
-                    When I'm not coding, you'll find me <span className="text-primary">listening to music</span>, <span className="text-accent">traveling</span> to new places, or gaming.
-                  </p>
-                </div>
+          {/* Bento Grid Layout */}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
+            {/* Bio Card - Spans 2 columns */}
+            <div className="md:col-span-2 glass-card p-6 sm:p-8 rounded-2xl sm:rounded-3xl">
+              <h3 className="font-display text-xl font-bold text-foreground mb-4 flex items-center gap-2">
+                <Heart className="w-5 h-5 text-primary" />
+                Who I Am
+              </h3>
+              <div className="space-y-4 text-muted-foreground leading-relaxed">
+                <p className="text-base sm:text-lg">
+                  I'm a motivated and detail-oriented <span className="text-foreground font-medium">Full Stack Developer</span> with hands-on internship experience building responsive web applications using the MERN stack.
+                </p>
+                <p>
+                  Skilled in developing RESTful APIs, integrating front-end and back-end systems, and managing databases. Passionate about building scalable web apps and writing clean, maintainable code.
+                </p>
               </div>
+            </div>
 
-              {/* Contact Info Cards */}
-              <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 sm:gap-4">
-                <a href="mailto:surajmakwana1712@gmail.com" className="glass-card p-4 sm:p-5 rounded-xl sm:rounded-2xl hover:border-primary/50 transition-all group">
-                  <Mail className="w-5 h-5 text-primary mb-2 sm:mb-3 group-hover:scale-110 transition-transform" />
-                  <p className="text-xs text-muted-foreground mb-1">Email</p>
-                  <p className="text-xs sm:text-sm font-medium text-foreground truncate">surajmakwana1712@gmail.com</p>
-                </a>
-                <a href="tel:+917567024863" className="glass-card p-4 sm:p-5 rounded-xl sm:rounded-2xl hover:border-primary/50 transition-all group">
-                  <Phone className="w-5 h-5 text-primary mb-2 sm:mb-3 group-hover:scale-110 transition-transform" />
-                  <p className="text-xs text-muted-foreground mb-1">Phone</p>
-                  <p className="text-xs sm:text-sm font-medium text-foreground">+91 75670 24863</p>
-                </a>
-                <div className="glass-card p-4 sm:p-5 rounded-xl sm:rounded-2xl">
-                  <MapPin className="w-5 h-5 text-primary mb-2 sm:mb-3" />
-                  <p className="text-xs text-muted-foreground mb-1">Location</p>
-                  <p className="text-xs sm:text-sm font-medium text-foreground">Gandhinagar, India</p>
+            {/* Education Card */}
+            <div className="glass-card p-6 sm:p-8 rounded-2xl sm:rounded-3xl row-span-2">
+              <div className="flex items-center gap-3 mb-6">
+                <div className="w-12 h-12 bg-gradient rounded-xl flex items-center justify-center">
+                  <GraduationCap className="w-6 h-6 text-primary-foreground" />
+                </div>
+                <h3 className="font-display text-xl font-bold text-foreground">Education</h3>
+              </div>
+              
+              <div className="space-y-6">
+                <div className="p-4 bg-secondary/50 rounded-xl">
+                  <h4 className="font-bold text-foreground mb-1">
+                    Bachelor of Computer Applications
+                  </h4>
+                  <p className="text-muted-foreground text-sm mb-3">
+                    Samarth BCA College, Himatnagar
+                  </p>
+                  <div className="flex items-center gap-2 text-sm text-muted-foreground mb-3">
+                    <Calendar className="w-4 h-4" />
+                    <span>May 2022</span>
+                  </div>
+                  <span className="px-3 py-1 text-xs font-bold bg-gradient text-primary-foreground rounded-full">
+                    SGPA: 8.0
+                  </span>
+                </div>
+
+                <div>
+                  <h4 className="font-medium text-foreground mb-3 text-sm">Languages</h4>
+                  <div className="flex flex-wrap gap-2">
+                    {["Gujarati", "Hindi", "English"].map((lang) => (
+                      <span
+                        key={lang}
+                        className="px-3 py-1.5 text-sm bg-secondary text-secondary-foreground rounded-lg font-medium"
+                      >
+                        {lang}
+                      </span>
+                    ))}
+                  </div>
                 </div>
               </div>
             </div>
 
-            {/* Education - 2 columns */}
-            <div className="lg:col-span-2">
-              <div className="glass-card p-6 sm:p-8 rounded-2xl sm:rounded-3xl h-full">
-                <div className="flex items-center gap-3 sm:gap-4 mb-6 sm:mb-8">
-                  <div className="w-12 h-12 sm:w-14 sm:h-14 bg-gradient rounded-xl sm:rounded-2xl flex items-center justify-center">
-                    <GraduationCap className="w-6 h-6 sm:w-7 sm:h-7 text-primary-foreground" />
-                  </div>
-                  <h3 className="font-display text-xl sm:text-2xl font-bold text-foreground">
-                    Education
-                  </h3>
-                </div>
-                
-                <div className="space-y-4 sm:space-y-6">
-                  <div className="p-4 sm:p-5 bg-secondary/50 rounded-xl sm:rounded-2xl">
-                    <h4 className="font-bold text-foreground text-base sm:text-lg mb-1 sm:mb-2">
-                      Bachelor of Computer Applications
-                    </h4>
-                    <p className="text-muted-foreground text-sm sm:text-base mb-2 sm:mb-3">
-                      Samarth BCA College, Himatnagar
-                    </p>
-                    <div className="flex flex-wrap items-center gap-2 sm:gap-3">
-                      <span className="text-xs sm:text-sm text-muted-foreground">May 2022</span>
-                      <span className="px-3 py-1 text-xs font-bold bg-gradient text-primary-foreground rounded-full">
-                        SGPA: 8.0
-                      </span>
-                    </div>
-                  </div>
+            {/* Contact Cards Row */}
+            <a href="mailto:surajmakwana1712@gmail.com" className="glass-card p-5 rounded-2xl hover:border-primary/50 transition-all group">
+              <Mail className="w-6 h-6 text-primary mb-3 group-hover:scale-110 transition-transform" />
+              <p className="text-xs text-muted-foreground mb-1">Email</p>
+              <p className="text-sm font-medium text-foreground truncate">surajmakwana1712@gmail.com</p>
+            </a>
 
-                  <div>
-                    <h4 className="font-medium text-foreground mb-3 sm:mb-4 text-sm sm:text-base">Languages</h4>
-                    <div className="flex flex-wrap gap-2">
-                      {["Gujarati", "Hindi", "English"].map((lang) => (
-                        <span
-                          key={lang}
-                          className="px-3 sm:px-4 py-1.5 sm:py-2 text-xs sm:text-sm bg-secondary text-secondary-foreground rounded-lg sm:rounded-xl font-medium"
-                        >
-                          {lang}
-                        </span>
-                      ))}
-                    </div>
-                  </div>
+            <a href="tel:+917567024863" className="glass-card p-5 rounded-2xl hover:border-primary/50 transition-all group">
+              <Phone className="w-6 h-6 text-primary mb-3 group-hover:scale-110 transition-transform" />
+              <p className="text-xs text-muted-foreground mb-1">Phone</p>
+              <p className="text-sm font-medium text-foreground">+91 75670 24863</p>
+            </a>
+
+            {/* Location Card */}
+            <div className="md:col-span-2 lg:col-span-2 glass-card p-5 rounded-2xl">
+              <div className="flex items-start gap-4">
+                <MapPin className="w-6 h-6 text-primary flex-shrink-0" />
+                <div>
+                  <p className="text-xs text-muted-foreground mb-1">Location</p>
+                  <p className="font-medium text-foreground">Gandhinagar, Gujarat, India</p>
+                  <p className="text-sm text-muted-foreground mt-2">Open to remote work globally</p>
                 </div>
               </div>
             </div>
