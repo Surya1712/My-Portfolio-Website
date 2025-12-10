@@ -22,116 +22,89 @@ const projects = [
 const Projects = () => {
   return (
     <section id="projects" className="py-16 sm:py-20 lg:py-28 px-4 sm:px-6 relative overflow-hidden">
-      {/* Background Elements */}
+      {/* Background */}
       <div className="absolute top-1/4 left-0 w-72 sm:w-96 h-72 sm:h-96 bg-primary/10 rounded-full blur-3xl" />
-      <div className="absolute bottom-1/4 right-0 w-64 h-64 bg-cyan-500/10 rounded-full blur-3xl" />
       
       <div className="container mx-auto relative z-10">
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-12 sm:mb-16 lg:mb-20">
-          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full glass-card mb-4 sm:mb-6 animate-fade-up">
+          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full glass-card mb-4 sm:mb-6">
             <Folder className="w-4 h-4 text-primary" />
             <span className="text-xs sm:text-sm font-medium text-muted-foreground">My Work</span>
           </div>
-          <h2 className="font-display text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-foreground mb-4 sm:mb-6 animate-fade-up" style={{ animationDelay: '0.1s' }}>
+          <h2 className="font-display text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-foreground mb-4 sm:mb-6">
             Featured <span className="text-gradient">Projects</span>
           </h2>
-          <p className="text-muted-foreground leading-relaxed text-sm sm:text-base lg:text-lg px-4 animate-fade-up" style={{ animationDelay: '0.2s' }}>
+          <p className="text-muted-foreground leading-relaxed text-sm sm:text-base lg:text-lg px-4">
             Projects that showcase my skills in full-stack development and passion for creating user-centric applications.
           </p>
         </div>
 
-        {/* Projects Grid */}
-        <div className="max-w-6xl mx-auto grid gap-8">
-          {projects.map((project, index) => (
+        <div className="max-w-5xl mx-auto">
+          {projects.map((project) => (
             <div
               key={project.title}
-              className="group relative animate-fade-up"
-              style={{ animationDelay: `${0.3 + index * 0.1}s` }}
+              className="glass-card rounded-2xl sm:rounded-3xl overflow-hidden group hover:border-primary/50 transition-all duration-500 hover:shadow-hover"
             >
-              {/* Gradient Border Container */}
-              <div className="absolute -inset-[1px] bg-gradient-to-r from-primary via-cyan-500 to-emerald-500 rounded-2xl sm:rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 blur-sm" />
-              <div className="absolute -inset-[1px] bg-gradient-to-r from-primary via-cyan-500 to-emerald-500 rounded-2xl sm:rounded-3xl opacity-0 group-hover:opacity-70 transition-opacity duration-500" />
-              
-              {/* Card Content */}
-              <div className="relative glass-card rounded-2xl sm:rounded-3xl overflow-hidden bg-background/95 backdrop-blur-xl">
-                <div className="grid lg:grid-cols-2 gap-0">
-                  {/* Image Section */}
-                  <div className="relative aspect-video lg:aspect-auto overflow-hidden">
-                    <img
-                      src={project.image}
-                      alt={project.title}
-                      className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 ease-out"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-background via-background/20 to-transparent lg:bg-gradient-to-r lg:from-transparent lg:via-background/20 lg:to-background" />
-                    
-                    {/* Featured Badge */}
-                    {project.featured && (
-                      <span className="absolute top-4 left-4 px-3 py-1.5 text-xs font-bold bg-gradient-to-r from-primary to-cyan-500 text-primary-foreground rounded-full shadow-lg shadow-primary/25">
-                        ✨ Featured
-                      </span>
-                    )}
-                    
-                    {/* Hover Overlay */}
-                    <div className="absolute inset-0 bg-primary/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-                  </div>
+              {/* Image */}
+              <div className="relative aspect-video sm:aspect-[2/1] overflow-hidden">
+                <img
+                  src={project.image}
+                  alt={project.title}
+                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-background/90 via-background/20 to-transparent" />
+                
+                {/* Featured Badge */}
+                {project.featured && (
+                  <span className="absolute top-4 sm:top-6 left-4 sm:left-6 px-3 sm:px-4 py-1.5 text-xs sm:text-sm font-bold bg-gradient text-primary-foreground rounded-full">
+                    Featured
+                  </span>
+                )}
+              </div>
 
-                  {/* Content Section */}
-                  <div className="p-6 sm:p-8 lg:p-10 flex flex-col justify-center">
-                    <p className="text-xs sm:text-sm text-primary font-semibold mb-2 uppercase tracking-wider">
-                      {project.category}
-                    </p>
-                    <h3 className="font-display text-2xl sm:text-3xl lg:text-4xl font-bold text-foreground mb-3 sm:mb-4 group-hover:text-gradient transition-all duration-300">
-                      {project.title}
-                    </h3>
-                    <p className="text-muted-foreground leading-relaxed mb-6 text-sm sm:text-base">
-                      {project.description}
-                    </p>
+              {/* Content */}
+              <div className="p-5 sm:p-8 lg:p-10">
+                <p className="text-xs sm:text-sm text-primary font-semibold mb-2 sm:mb-3 uppercase tracking-wider">{project.category}</p>
+                <h3 className="font-display text-2xl sm:text-3xl lg:text-4xl font-bold text-foreground mb-3 sm:mb-4">
+                  {project.title}
+                </h3>
+                <p className="text-muted-foreground leading-relaxed mb-6 sm:mb-8 text-sm sm:text-base lg:text-lg">
+                  {project.description}
+                </p>
 
-                    {/* Features Grid */}
-                    <div className="grid grid-cols-2 gap-3 mb-6">
-                      {project.features.map((feature, featureIndex) => (
-                        <div 
-                          key={feature.label} 
-                          className="flex items-center gap-2 p-2 rounded-xl bg-secondary/50 hover:bg-secondary transition-colors duration-300 group/feature"
-                          style={{ animationDelay: `${featureIndex * 0.1}s` }}
-                        >
-                          <div className="w-8 h-8 bg-gradient-to-br from-primary/20 to-cyan-500/20 rounded-lg flex items-center justify-center group-hover/feature:scale-110 transition-transform duration-300">
-                            <feature.icon className="w-4 h-4 text-primary" />
-                          </div>
-                          <span className="text-xs sm:text-sm font-medium text-muted-foreground">{feature.label}</span>
-                        </div>
-                      ))}
+                {/* Features */}
+                <div className="flex flex-wrap gap-3 sm:gap-4 lg:gap-6 mb-6 sm:mb-8">
+                  {project.features.map((feature) => (
+                    <div key={feature.label} className="flex items-center gap-2 text-muted-foreground">
+                      <div className="w-8 h-8 sm:w-10 sm:h-10 bg-secondary rounded-lg sm:rounded-xl flex items-center justify-center">
+                        <feature.icon className="w-4 h-4 sm:w-5 sm:h-5 text-primary" />
+                      </div>
+                      <span className="text-xs sm:text-sm font-medium">{feature.label}</span>
                     </div>
+                  ))}
+                </div>
 
-                    {/* Tags */}
-                    <div className="flex flex-wrap gap-2 mb-6">
-                      {project.tags.map((tag, tagIndex) => (
-                        <span
-                          key={tag}
-                          className="px-3 py-1.5 text-xs font-medium bg-secondary/80 text-secondary-foreground rounded-lg hover:bg-primary/20 hover:text-primary transition-colors duration-300 cursor-default"
-                          style={{ animationDelay: `${tagIndex * 0.05}s` }}
-                        >
-                          {tag}
-                        </span>
-                      ))}
-                    </div>
+                {/* Tags */}
+                <div className="flex flex-wrap gap-2 mb-6 sm:mb-8">
+                  {project.tags.map((tag) => (
+                    <span
+                      key={tag}
+                      className="px-3 sm:px-4 py-1.5 sm:py-2 text-xs sm:text-sm font-medium bg-secondary text-secondary-foreground rounded-lg sm:rounded-xl"
+                    >
+                      {tag}
+                    </span>
+                  ))}
+                </div>
 
-                    {/* Action Buttons */}
-                    <div className="flex flex-wrap gap-3">
-                      <Button 
-                        size="lg" 
-                        className="bg-gradient-to-r from-primary to-cyan-500 hover:from-primary/90 hover:to-cyan-500/90 shadow-lg shadow-primary/25 text-primary-foreground group/btn transition-all duration-300" 
-                        asChild
-                      >
-                        <a href={project.github} target="_blank" rel="noopener noreferrer">
-                          <Github className="w-4 h-4 mr-2 group-hover/btn:rotate-12 transition-transform duration-300" />
-                          View Code
-                          <ArrowUpRight className="w-4 h-4 ml-1 group-hover/btn:translate-x-0.5 group-hover/btn:-translate-y-0.5 transition-transform duration-300" />
-                        </a>
-                      </Button>
-                    </div>
-                  </div>
+                <div className="flex flex-col sm:flex-row gap-3 sm:gap-4">
+                  <Button size="lg" className="bg-gradient hover:opacity-90 shadow-soft text-primary-foreground" asChild>
+                    <a href={project.github} target="_blank" rel="noopener noreferrer">
+                      <Github className="w-4 h-4 sm:w-5 sm:h-5 mr-2" />
+                      View on GitHub
+                      <ArrowUpRight className="w-4 h-4 ml-1" />
+                    </a>
+                  </Button>
                 </div>
               </div>
             </div>
